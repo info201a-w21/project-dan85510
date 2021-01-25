@@ -24,7 +24,7 @@ COVID is an immediate problem that affects everyone in the US, accessibility to 
   - How do treatment rates differ according to different parts (cities, states, etc.) of the country?
   - Is there a significant difference in treatment rates according to the median incomes of the location?
 
-  **FINDING DATA**
+**FINDING DATA**
 
 1. [US COVID-19 cases and deaths by state](https://covid.cdc.gov/covid-data-tracker/?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fcases-updates%2Fcases-in-us.html#cases_casesper100klast7days )
   - We downloaded the data from this URL above
@@ -37,4 +37,4 @@ COVID is an immediate problem that affects everyone in the US, accessibility to 
   - The data was gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. They obtained the data from the states reports of them.
   - There are 4,648 rows in the dataset.
   - There are 54 columns in the dataset.
-  - A questions that can be answered from this dataset is how different races are being affected either in infection rate, death rate, hospitalization, and more by state. 
+  - A questions that can be answered from this dataset is how different races are being affected either in infection rate, death rate, hospitalization, and more by state.
