@@ -32,4 +32,9 @@ COVID is an immediate problem that affects everyone in the US, accessibility to 
   - Rows
   - Columns
   - ------
-2. 
+2. [US COVID-19 Racial Data Tracker](https://covidtracking.com/race)
+  - The data was downloaded from the URL above.
+  - The data was gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. They obtained the data from the states reports of them.
+  - There are 4,648 rows in the dataset.
+  - There are 54 columns in the dataset.
+  - A questions that can be answered from this dataset is how different races are being affected either in infection rate, death rate, hospitalization, and more by state. 
