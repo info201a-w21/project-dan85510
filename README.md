@@ -8,7 +8,7 @@ As we've discussed, data science can expose underlying patterns in any domain th
 In the media, data can expose interesting (and actionable) patterns. In this section, you'll identify a domain that you are interested in (e.g., music, education, dance, immigration -- any field of your interest) and answer the following questions in your README.md file:
 
 - _Why are you interested in this field/domain?_
-COVID is an immediate problem that affects everyone in the US, accessibility to COVID treatment is especially pertinent now since COVID cases are on the rise and vaccinations are starting to be distributed.
+COVID is an immediate problem that affects everyone in the US. Accessibility to COVID treatment is especially pertinent now since COVID cases are on the rise and vaccinations are starting to be distributed.
 
 - What other examples of data driven project have you found related to this domain?
   - [Link 1](https://covidtracking.com/race)
@@ -16,7 +16,7 @@ COVID is an immediate problem that affects everyone in the US, accessibility to 
   - [Link 2](https://www.statista.com/statistics/1122354/covid-19-us-hospital-rate-by-age/)
     - This data presents the number of laboratory-related COVID-19 hospitalizations in the United States by age groups.
   - [Link 3](https://www.cdc.gov/nchs/nvss/vsrr/covid19/health_disparities.htm)
-    - This data set is specifically focusing on hispanics in comparison to other races with data focusing on death/age distribution.
+    - This data set is specifically focusing on Hispanics in comparison to other races with data focusing on death/age distribution.
 
 - What data driven questions do you hope to answer to answer about this domain?
 
@@ -38,3 +38,10 @@ COVID is an immediate problem that affects everyone in the US, accessibility to 
   - There are 4,648 rows in the dataset.
   - There are 54 columns in the dataset.
   - A questions that can be answered from this dataset is how different races are being affected either in infection rate, death rate, hospitalization, and more by state.
+  - -----
+3. [UW COVID-19 Hospitalization Rate by State, Age, and Ethnicity](https://gis.cdc.gov/grasp/COVIDNet/COVID19_3.html)
+  - The data was downloaded from the UWL above.
+  - The data is accumulated by the COVID-19-Associated Hospitalization Surveillance Network, which collects the hospitalization rates of nearly 100 counties in 10 Emerging Infections Program (EIP) states.
+  - There are 34,275 observation rows in the dataset.
+  - There are 10 features in the dataset, 8 of which are applicable to the research.
+  - Questions that can be answered from this data include how the number of COVID-19 cases per 100,000 people vary from state to state, how it varies by ethnicity, and how it varies over time.
