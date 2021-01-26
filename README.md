@@ -29,9 +29,10 @@ COVID is an immediate problem that affects everyone in the US. Accessibility to 
 1. [US COVID-19 cases and deaths by state](https://covid.cdc.gov/covid-data-tracker/?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fcases-updates%2Fcases-in-us.html#cases_casesper100klast7days )
   - We downloaded the data from this URL above
   - The data was collected by the CDC from officially submitted COVID-19 reports from autonomous reporting entities
-  - Rows
-  - Columns
-  - ------
+  - There are 22,140 rows in the dataset.
+  - There are 15 columns in the dataset.
+  - Questions that could be answered include the number of new cases for each state, and the ratio of deaths to cases for each state.
+  - -----
 2. [US COVID-19 Racial Data Tracker](https://covidtracking.com/race)
   - The data was downloaded from the URL above.
   - The data was gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. They obtained the data from the states reports of them.
