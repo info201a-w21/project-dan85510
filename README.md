@@ -33,7 +33,7 @@ COVID is an immediate problem that affects everyone in the US. Accessibility to 
   - There are 15 columns in the dataset.
   - Questions that could be answered include the number of new cases for each state, and the ratio of deaths to cases for each state.
   - -----
-2. [US COVID-19 Racial Data Tracker](https://covidtracking.com/race)
+2. [US COVID-19 Racial Data Tracker]("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv")
   - The data was downloaded from the URL above.
   - The data was gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. They obtained the data from the states reports of them.
   - There are 4,648 rows in the dataset.
