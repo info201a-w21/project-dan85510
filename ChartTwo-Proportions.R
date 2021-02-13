@@ -27,7 +27,7 @@ proportions <- proportions %>%
   )
 #switch x,y orientation of previous dataframe for ease of use
 names <- colnames(proportions)
-values <- as.numeric(head(proportion,1))
+values <- as.numeric(head(proportions,1))
 death_hosp_proportions <- data.frame("Race" = names, "Proportion" = values)
 #Create scatterplot of proportions of deaths to hospitalizations by race 
 plot <- ggplot(data = death_hosp_proportions) +
