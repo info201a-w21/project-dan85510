@@ -5,6 +5,7 @@ covid_data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaER
 
 #dataframe of proportion of deaths to hospitalizations by race with most current data
 #all counts are cumulative across date
+#Extracted most recent date and extracted relevant deaths/hospitalizations columns
 deaths_by_race <- covid_data %>%
   filter(Date == max(Date, na.rm = T)) %>%
   select(starts_with("Deaths")) %>%
@@ -15,6 +16,7 @@ hosp_by_race <- covid_data %>%
   select(starts_with("Hosp")) %>%
   select(-contains("Total"), -contains("Unknown"), -contains("Ethnicity")) %>%
   summarize_if(is.numeric, sum, na.rm = TRUE)
+#created dataframe of proportions by race
 proportions <- deaths_by_race / hosp_by_race
 proportions <- proportions %>%
   rename(
@@ -31,7 +33,7 @@ proportions <- proportions %>%
 names <- colnames(proportions)
 values <- as.numeric(head(proportions, 1))
 death_hosp_proportions <- data.frame("Race" = names, "Proportion" = values)
-#Create scatterplot of proportions of deaths to hospitalizations by race
+#Create bar chart of proportions of deaths to hospitalizations by race
 plot <- ggplot(data = death_hosp_proportions) +
   geom_col(mapping = aes(x = Race, y = Proportion, color = Race)) +
   labs(x = "Race", y = "Proportion of Deaths to Hospitalizations", title = "National Proportion of COVID Deaths to Hospitalizatons by Race")
