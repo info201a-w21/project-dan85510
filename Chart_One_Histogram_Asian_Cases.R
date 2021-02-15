@@ -1,0 +1,20 @@
+covid_cases <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv")
+library(tidyverse)
+# View(covid_cases)
+
+# Obtaining all asian cases from the most recent date in all U.S. 
+# states/territories
+asian_cases <- covid_cases %>%
+  filter(Date == max(Date, na.rm = T)) %>%
+  select(Cases_Asian)
+
+# Creating a histogram showing frequency of asian cases in all of the U.S.
+# states/territories from the dataset
+ggplot(data = asian_cases, aes(x=Cases_Asian)) + 
+  geom_histogram() +
+  labs(x = "Number of asian cases",
+       y= "Frequency",
+       title = "Distribution of total asian cases across the U.S.")
+
+
+
