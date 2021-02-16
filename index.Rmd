@@ -7,24 +7,27 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+source("Chart_One_Histogram_Asian_Cases.R")
+source("ChartThree - HospByRace.R")
+source("ChartTwo-Proportions.R")
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+##Introduction 
+The data was gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. They obtained the data from the states reports of them. This dataset helps to answer our research question in looking at a lot of different variables regarding how COVID-19 has affected different ethnicities across the U.S. In looking at these variables and doing analysis over them some important findings can be made about the ways in which different ethnicities in the U.S. dealt with COVID-19. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+##Summary
 
-```{r cars}
-summary(cars)
+##Aggregate Table
+
+
+##Chart 1
+This chart presents a clear picture of how asian cases were distributed amongst the U.S. states and territories in the dataset from April 2020 to February 2020. Some important observations from this chart were that a lot of the distribution tended to be seen in the front of the chart meaning that there asian cases tended to be mostly between 0 and 50,000. 
+```{r, echo = F}
+asian_cases
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+##Chart 2
+This chart was intended to show the proportion of deaths to hospitalizations by ethnicity in the U.S according to the most recent data available. Some important observations from this chart were that there were actually more deaths than hospitalizations for people who identify as White given that the proportion was 1.055. The second highest proportion was from the Asian group with a 0.837 proportion, followed by the Black group with a 0.81 proportion. This is interesting, given that according to the US census, 76% of the population identify as White, 13% identity as Black, 6% identify as Asian, and 19% identify as hispanic or latino.  Compared to our proportion findings, it seems like the Asian, Black, and LatinX groups have higher proportions than reflected by the US population racial makeup numbers.  
+```{r, echo = F}
+plot
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
