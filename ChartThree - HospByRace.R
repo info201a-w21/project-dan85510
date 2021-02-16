@@ -21,10 +21,14 @@ hosp_by_day <- covid_data %>%
   mutate(Date = as.character(Date)) %>% 
   mutate(Date = as.Date(Date, "%Y%m%d")) %>% 
   #changes layout of the dataframe to make it suitable for plotting
-  gather(key = ethnicity,
+  gather(key = Ethnicity,
          value = Hospitalizations,
          -Date)
 
+options(scipen = 5)
 #area plot
-graph <- ggplot(hosp_by_day, aes(x = Date, y = Hospitalizations, fill = ethnicity)) +
-  geom_area()
+graph <- ggplot(hosp_by_day, aes(x = Date, y = Hospitalizations, fill = Ethnicity)) +
+  geom_area() +
+  labs (
+    title = "Hospitalizations by Ethnicity over Time"
+  )
