@@ -1,6 +1,6 @@
 ---
-title: "index"
-author: "Allison Li"
+title: "Explanatory Analysis"
+author: "Allison Li, Tim Chen, Daniel Chen, Kevin Ryu"
 date: "2/15/2021"
 output: html_document
 ---
@@ -11,6 +11,7 @@ source("Chart_One_Histogram_Asian_Cases.R")
 source("ChartThree - HospByRace.R")
 source("ChartTwo-Proportions.R")
 source("Aggregated table.R")
+source("summary.R")
 ```
 
 
@@ -19,6 +20,9 @@ source("Aggregated table.R")
 The data was gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. They obtained the data from the states reports of them. This dataset helps to answer our research question in looking at a lot of different variables regarding how COVID-19 has affected different ethnicities across the U.S. In looking at these variables and doing analysis over them some important findings can be made about the ways in which different ethnicities in the U.S. dealt with COVID-19. 
 
 ### Summary
+
+The information that we had summarized is the main columns that were apparent in the dataset.These values give the readers a good context around the gravity and impact of COVID 19 on the nation.These values were total cases, deaths, hospitalizations, and tests by race as well as the number of observations or rows in our dataset. From the most recent data, we found that there were `r total_cases` total cases in the nation, `r total_tests` total tests done, `r total_deaths` total deaths, and `r total_hosps` total hospitalizations. We also calculated that there were`r total_obvs` total data points in our dataset. 
+
 
 ### Aggregate Table
 
@@ -30,7 +34,7 @@ kable(COVID_19_Data)
 
 ### Chart 1
 
-This chart presents a clear picture of how asian cases were distributed amongst the U.S. states and territories in the dataset from April 2020 to February 2020. Some important observations from this chart were that a lot of the distribution tended to be seen in the front of the chart meaning that there asian cases tended to be mostly between 0 and 50,000. 
+We decided to focus on specifically Asian cases because we personally related to this demographic the most as an entirely Asian group. Especially in the current climate of sinophobia in the nation, we wanted to see if the actual data warrants the fear against Asians specifically. This chart presents a clear picture of how Asian cases were distributed amongst the U.S. states and territories in the dataset from April 2020 to February 2021. Some important observations from this chart were that a lot of the distribution tended to be seen in the front of the chart meaning that there Asian cases tended to be mostly between 0 and 50,000. 
 
 ```{r, echo = F, warning = F, message = F}
 dist_asian_cases
@@ -38,14 +42,15 @@ dist_asian_cases
 
 ### Chart 2
 
-This chart was intended to show the proportion of deaths to hospitalizations by ethnicity in the U.S according to the most recent data available. Some important observations from this chart were that there were actually more deaths than hospitalizations for people who identify as White given that the proportion was 1.055. The second highest proportion was from the Asian group with a 0.837 proportion, followed by the Black group with a 0.81 proportion. This is interesting, given that according to the US census, 76% of the population identify as White, 13% identity as Black, 6% identify as Asian, and 19% identify as hispanic or latino.  Compared to our proportion findings, it seems like the Asian, Black, and LatinX groups have higher proportions than reflected by the US population racial makeup numbers.  
+We chose to depict the proportion of deaths to hospitalizations across ethnicities to see if there were discrepancies in health care and treatments across different racial groups. This chart was intended to show the proportion of deaths to hospitalizations by ethnicity in the U.S according to the most recent data available. Some important observations from this chart were that there were actually more deaths than hospitalizations for people who identify as White given that the proportion was 1.055. The second highest proportion was from the Asian group with a 0.837 proportion, followed by the Black group with a 0.81 proportion. This is interesting, given that according to the US census, 76% of the population identify as White, 13% identity as Black, 6% identify as Asian, and 19% identify as hispanic or latino.  Compared to our proportion findings, it seems like the Asian, Black, and LatinX groups have higher proportions than reflected by the US population racial makeup numbers.  
+
 ```{r, echo = F}
 plot
 ```
 
 ### Chart 3
 
-This chart is important in showing the hospitalizations over time by ethnicity. Some important observations that we identified were that the ethnicities that had the most COVID hospitalizations were white people. As time went on, the proportion of LatinX cases increased relative to the hospitalizations as a whole. There is also a dramatic increase in hospitalizations during October 2020 -- this may be due to a rapid outbreak of cases, or due to a change in the gathering of hospitalization data.
+This chart is important in showing the hospitalizations over time by ethnicity, to see if the rate of hospitalizations changed over time and across different ethnicities. Some important observations that we identified were that the ethnicities that had the most COVID hospitalizations were white people. As time went on, the proportion of LatinX cases increased relative to the hospitalizations as a whole. There is also a dramatic increase in hospitalizations during October 2020 -- this may be due to a rapid outbreak of cases, or due to a change in the gathering of hospitalization data.
 
 ```{r, echo = F}
 graph

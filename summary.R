@@ -3,8 +3,6 @@ library(lintr)
 library(styler)
 covid_data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv")
 
-# total cases, hosp, tests, deaths, num observations, state where max ___ happens
-
 total_cases <- covid_data %>%
   filter(Date == max(Date, na.rm = T)) %>%
   select(Cases_Total) %>%
