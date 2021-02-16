@@ -22,7 +22,7 @@ The data was gathered from the COVID Tracking Project and Boston University Cent
 
 ### Aggregate Table
 
-The table depicts the total cases, deaths, hospitalizations, and tests for each ethnic group in the United States as of present date. Because our data did not include a column with ethnicities but had  values for each specific ethnicity as a column (for example, cases_white, cases_black, etc.), the table was created by isolating each different category into their own data frames. Once isolated and grouped into ethnicities within the same category, we were able to join together the four different data frames into one to create a data frame that grouped each category (cases, deaths, hospitalizations, and tests) by ethnicities without explicitly using the group_by function. 
+The table depicts the total cases, deaths, hospitalizations, tests, and the proportion of deaths over hospitalizations for each ethnic group in the United States as of present date. Because our data did not include a column with ethnicities but had  values for each specific ethnicity as a column (for example, cases_white, cases_black, etc.), the table was created by isolating each different category into their own data frames. Once isolated and grouped into ethnicities within the same category, we were able to join together the different data frames into one to create a data frame that grouped each category (cases, deaths, hospitalizations, tests, and the proportion of deaths over hospitalizations) by ethnicities without explicitly using the group_by function. 
 
 ```{r, echo = F, warning = F}
 kable(COVID_19_Data)
