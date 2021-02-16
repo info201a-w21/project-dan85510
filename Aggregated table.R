@@ -120,4 +120,6 @@ COVID_19_Data <- left_join(cases_by_ethnicity, deaths_by_ethnicity, by = "Ethnic
   left_join(., hosp_by_ethnicity, by = "Ethnicity") %>%
   left_join(., tests_by_ethnicity, by = "Ethnicity")
 
-kable(COVID_19_Data)
+#Mutate a column for proportion of deaths and hospitalizations
+COVID_19_Data <- COVID_19_Data %>%
+  mutate(Prop_Deaths_Hopsitalizations = Deaths / Hospitalizations)
