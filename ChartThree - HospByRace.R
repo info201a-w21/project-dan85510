@@ -26,5 +26,5 @@ hosp_by_day <- covid_data %>%
          -Date)
 
 #area plot
-ggplot(hosp_by_day, aes(x = Date, y = Hospitalizations, fill = ethnicity)) +
+graph <- ggplot(hosp_by_day, aes(x = Date, y = Hospitalizations, fill = ethnicity)) +
   geom_area()
