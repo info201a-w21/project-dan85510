@@ -6,10 +6,10 @@ page_one <- tabPanel(
 )
 
 # graph inputs for chart 2
-states <- selectInput(
-  inputId = "states",
-  choices = covid_cases$State,
-  label = "Choose a state"
+race_option <- selectInput(
+  inputId = "race_hist",
+  choices = case_race,
+  label = "Choose a race/ethnicity"
 )
 
 color_options <- radioButtons(
@@ -26,7 +26,7 @@ page_two <- tabPanel(
   br(),
   sidebarLayout(
     sidebarPanel(
-        states,
+        race_option,
         color_options
     ),
     mainPanel(
