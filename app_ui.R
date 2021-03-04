@@ -7,7 +7,7 @@ page_one <- tabPanel(
 
 # graph inputs for chart 2
 states <- selectInput(
-  inputId = "state",
+  inputId = "states",
   choices = covid_cases$State,
   label = "Choose a state"
 )
@@ -28,11 +28,14 @@ page_two <- tabPanel(
     sidebarPanel(
         states,
         color_options
+    ),
+    mainPanel(
+      h2("Chart"),
+      plotOutput(outputId = "dist_asian_cases"),
+    )
   ),
-  mainPanel(
-    h2("Chart"),
-  )
-  ),
+  br(),
+  p("I chose to include this because ... ")
 )
 
 page_three <- tabPanel(
