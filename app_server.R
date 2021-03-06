@@ -81,15 +81,16 @@ server <- function(input, output, session){
   # chart 1 info
   # Creating a histogram showing frequency of cases in all of the U.S.
   # states/territories from the dataset
+  race <- input$race
   total_cases <- reactive({case_race %>% 
-      select(input$race)
+      select(race)
   })
   output$histogram <- renderPlotly({
-    hist_cases <- ggplot(total_cases(), aes(total_cases$input$race)) +
+    hist_cases <- ggplot(total_cases(), aes(x=total_cases$race)) +
       geom_histogram(bins = 10) +
-      labs(x = paste("Number of", input$race),
+      labs(x = paste("Number of", race),
            y= "Frequency",
-           title = "Distribution of total", input$race, "Across the U.S.")
+           title = paste("Distribution of total", race, "Across the U.S."))
     ggplotly(hist_cases)
   })
   #chart 2
