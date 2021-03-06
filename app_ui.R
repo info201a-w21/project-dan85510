@@ -8,7 +8,7 @@ page_one <- tabPanel(
 # graph inputs for chart 2
 race_option <- selectInput(
   inputId = "race_hist",
-  choices = case_race,
+  choices = colnames(case_race),
   label = "Choose a race/ethnicity"
 )
 
@@ -31,7 +31,7 @@ page_two <- tabPanel(
     ),
     mainPanel(
       h2("Chart"),
-      plotOutput(outputId = "dist_asian_cases"),
+      plotOutput(outputId = "case_total"),
     )
   ),
   br(),

@@ -8,28 +8,22 @@ covid_cases <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaE
 case_race <- covid_cases %>% 
   filter(Date == max(Date, na.rm = T)) %>%
   select(starts_with("Cases")) %>%
-  select(-contains("Total"), -contains("Unknown"), -contains("Ethnicity")) %>%
-  summarize_if(is.numeric, sum, na.rm = TRUE)
+  select(-contains("Total"), -contains("Unknown"), -contains("Ethnicity"))
 
 server <- function(input, output){
   # chart 1 info 
-  # Creating a histogram showing frequency of asian cases in all of the U.S.
-  # states/territories from the dataset
-  output$dist_asian_cases <- renderPlot({
-    race_hist <- input$race_hist
+  output$case_total <- renderPlot({
     
     total_cases <- case_race %>% 
-      select(race_hist)
+      select(input$race_hist)
 
-    dist_asian_cases <- ggplot(data = total_cases) + 
-    geom_histogram(
-      mapping = aes(x = race_hist)
-    ) +
-    labs(x = paste("Number of", race_hist, "Cases"),
+    hist_cases <- ggplot(data = total_cases, aes(x = input$race_hist)) + 
+    geom_bar() +
+    labs(x = paste("Number of", input$race_hist),
          y= "Frequency",
-         title = "Distribution of total", race_hist, "Across the U.S.")
+         title = "Distribution of total", input$race_hist, "Across the U.S.")
     
-    return(dist_asian_cases)
+    return(hist_cases)
   })
 }
 
