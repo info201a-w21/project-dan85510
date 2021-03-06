@@ -5,9 +5,10 @@ source("app_server.R")
 #Widget Components:
 # graph inputs for chart 1 ------------------------------------------------
 race_option <- selectInput(
-  inputId = "race_hist",
+  inputId = "race",
   choices = colnames(case_race),
-  label = "Choose a race/ethnicity"
+  label = "Choose a race/ethnicity",
+  selected = "Cases_White"
 )
 
 color_options <- radioButtons(
@@ -57,7 +58,7 @@ page_two <- tabPanel(
     ),
     mainPanel(
       h2("Chart"),
-      plotOutput(outputId = "case_total"),
+      plotlyOutput(outputId = "histogram"),
     )
   ),
   br(),

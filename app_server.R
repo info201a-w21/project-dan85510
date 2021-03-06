@@ -71,25 +71,25 @@ min_date <- min(dates)
 max_date <- max(dates)
 races <- c("White", "LatinX", "Asian", "AIAN", "NHPI", "Multiracial", "Other")
 # Server Components -------------------------------------------------------
+test <- case_race %>% 
+  select("Cases_White")
+
+test1 <- test$Cases_White
 
 server <- function(input, output, session){
   # chart 1 info
-  # Creating a histogram showing frequency of asian cases in all of the U.S.
+  # Creating a histogram showing frequency of cases in all of the U.S.
   # states/territories from the dataset
-  output$case_total <- renderPlot({
-    #chart 1
-    race_hist <- input$race_hist
-    
-    total_cases <- case_race %>% 
-      select(input$race_hist)
-
-    hist_cases <- ggplot(data = total_cases, aes(x = input$race_hist)) + 
-    geom_bar() +
-    labs(x = paste("Number of", input$race_hist),
-         y= "Frequency",
-         title = "Distribution of total", input$race_hist, "Across the U.S.")
-
-    #return(dist_asian_cases)
+  total_cases <- reactive({case_race %>% 
+      select(input$race)
+  })
+  output$histogram <- renderPlotly({
+    hist_cases <- ggplot(total_cases(), aes(total_cases$input$race)) +
+      geom_histogram(bins = 10) +
+      labs(x = paste("Number of", input$race),
+           y= "Frequency",
+           title = "Distribution of total", input$race, "Across the U.S.")
+    ggplotly(hist_cases)
   })
   #chart 2
   filtered_data <- reactive({new_proportions %>% 
