@@ -44,7 +44,7 @@ date_input <- sliderInput(
 # UI Components -----------------------------------------------------------
 
 page_one <- tabPanel(
-  "Introduction" 
+  "Introduction"
 )
 
 page_two <- tabPanel(

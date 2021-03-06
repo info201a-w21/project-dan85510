@@ -77,6 +77,7 @@ test <- case_race %>%
 test1 <- test$Cases_White
 
 server <- function(input, output, session){
+  output$value <- renderPrint({ input$checkGroup })
   # chart 1 info
   # Creating a histogram showing frequency of cases in all of the U.S.
   # states/territories from the dataset
