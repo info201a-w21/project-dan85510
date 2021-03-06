@@ -73,16 +73,12 @@ races <- c("White", "LatinX", "Asian", "AIAN", "NHPI", "Multiracial", "Other")
 # Server Components -------------------------------------------------------
 
 server <- function(input, output, session){
-  # chart 1 info 
-<<<<<<< HEAD
-  output$case_total <- renderPlot({
-=======
+  # chart 1 info
   # Creating a histogram showing frequency of asian cases in all of the U.S.
   # states/territories from the dataset
-  output$dist_asian_cases <- renderPlot({
+  output$case_total <- renderPlot({
     #chart 1
     race_hist <- input$race_hist
->>>>>>> 0cf3dfb0ea36b1e61c2ae580d5cbdd0d3c206151
     
     total_cases <- case_race %>% 
       select(input$race_hist)
@@ -92,10 +88,7 @@ server <- function(input, output, session){
     labs(x = paste("Number of", input$race_hist),
          y= "Frequency",
          title = "Distribution of total", input$race_hist, "Across the U.S.")
-    
-<<<<<<< HEAD
-    return(hist_cases)
-=======
+
     #return(dist_asian_cases)
   })
   #chart 2
@@ -115,7 +108,6 @@ server <- function(input, output, session){
       geom_col(mapping = aes(x = Race, y = Proportion, color = Race)) +
       labs(x = "Race", y = "Proportion of Deaths to Hospitalizations", title = "COVID Deaths to Hospitalizatons by Race")
     ggplotly(my_plot) 
->>>>>>> 0cf3dfb0ea36b1e61c2ae580d5cbdd0d3c206151
   })
 }
 
