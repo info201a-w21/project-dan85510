@@ -40,6 +40,18 @@ date_input <- sliderInput(
   step = 1,
   animate = animationOptions(interval = 1800)
 )
+
+# graph inputs for chart 3 ------------------------------------------------
+dates_input <- sliderInput (
+  inputId = "date_range",
+  label = "Choose a range of dates to display",
+  min = as.Date("2020-04-12", "%Y-%m-%d"),
+  max = as.Date("2021-03-03", "%Y-%m-%d"),
+  value = c(as.Date("2020-08-01"), as.Date("2020-12-01")),
+  step = 1,
+  animate = animationOptions(interval = 300, loop = TRUE)
+)
+
 #UI Features:
 # UI Components -----------------------------------------------------------
 
@@ -87,7 +99,18 @@ page_three <- tabPanel(
 )
 
 page_four <- tabPanel(
-  "Title" 
+  "Chart 3",
+  titlePanel("Examining COVID Hospitalizations by Race over Time"),
+  br(),
+  sidebarLayout(
+    sidebarPanel(
+      dates_input
+    ),
+    mainPanel(
+      plotlyOutput(outputId = "graph")
+    )
+  )
+  
 )
 
 page_five <- tabPanel(

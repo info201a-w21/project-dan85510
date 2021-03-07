@@ -110,6 +110,43 @@ server <- function(input, output, session){
       labs(x = "Race", y = "Proportion of Deaths to Hospitalizations", title = "COVID Deaths to Hospitalizatons by Race")
     ggplotly(my_plot) 
   })
+  
+  #chart 3
+  
+  output$graph <- renderPlotly({
+    hosp_by_day <- covid_cases %>% 
+      select("Date", starts_with("Hosp")) %>% 
+      group_by(Date) %>% 
+      summarize(White = sum(Hosp_White, na.rm = T),
+              Black = sum(Hosp_Black, na.rm = T),
+              Latinx = sum(Hosp_Latinx, na.rm = T),
+              Asian = sum(Hosp_Asian, na.rm = T),
+              AIAN = sum(Hosp_AIAN, na.rm = T),
+              NHPI = sum(Hosp_NHPI, na.rm = T),
+              Multiracial = sum(Hosp_Multiracial, na.rm = T),
+              Other = sum(Hosp_Other, na.rm = T),
+              Unknown = sum(Hosp_Unknown, na.rm = T)
+    ) %>% 
+    mutate(Date = as.character(Date)) %>% 
+    mutate(Date = as.Date(Date, "%Y%m%d")) %>% 
+    #filter based on dates inputted by user
+    filter(Date >= input$date_range[1], Date <= input$date_range[2]) %>% 
+    #changes layout of the dataframe to make it suitable for plotting
+    gather(key = Ethnicity,
+           value = Hospitalizations,
+           -Date)
+  
+  options(scipen = 5)
+  
+  chart <- ggplot(hosp_by_day) +
+      geom_area(mapping = aes(x = Date, y = Hospitalizations, fill = Ethnicity)) +
+      labs (
+        title = "Hospitalizations by Ethnicity over Time",
+        x = "Date",
+        y = "Number of Hospitalizations"
+      )
+  chart
+  })
 }
 
 
