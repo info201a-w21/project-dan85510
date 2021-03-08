@@ -34,7 +34,7 @@ date_input <- sliderInput(
   inputId = "date_choice", 
   label = "choose a date range for the data to display",
   min = as.Date("2020-06-17","%Y-%m-%d"),
-  max = as.Date("2021-03-03","%Y-%m-%d"),
+  max = as.Date("2021-03-07","%Y-%m-%d"),
   value = c(as.Date("2020-06-29"), as.Date("2021-01-29")), 
   timeFormat="%Y-%m-%d", 
   step = 30,
@@ -56,7 +56,8 @@ dates_input <- sliderInput (
 # UI Components -----------------------------------------------------------
 
 page_one <- tabPanel(
-  "Introduction"
+  "Introduction", 
+  p("The main topic of our project is looking at accessibility to COVID hospitalization in the US among different demographics. We wanted to analyze if demographics affect the ability to get COVID-related support in hospitals. The data we are looking at was gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. They obtained the data from the states' reports of them. This dataset helps to answer our research question by looking at a lot of different variables regarding how COVID-19 has affected different ethnicities across the U.S. The two main points of focus are looking at how treatment rates of COVID cases differ based on different ethnicity groups and how hospitalization rates differ according to different parts (cities, states, etc.) of the country? In looking at these variables and doing analysis over them some important findings can be made about the ways in which different ethnicities in the U.S. dealt with COVID-19. ")
 )
 
 page_two <- tabPanel(

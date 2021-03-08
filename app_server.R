@@ -96,7 +96,7 @@ server <- function(input, output, session){
   output$barchart <- renderPlotly({
     test_data1 <- reactive({
       filtered_data <- new_proportions %>% 
-        filter(Date >= input$date_choice[1], Date <= input$date_choice[2])
+        filter(Date <= input$date_choice[2], Date >= input$date_choice[1])
       filtered_data <-filtered_data %>% 
         select(-contains("Date"))
       names <- colnames(filtered_data)
