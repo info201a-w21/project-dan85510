@@ -93,26 +93,25 @@ server <- function(input, output, session){
     ggplotly(hist_cases)
   })
   #chart 2
-  filtered_data <- reactive({new_proportions %>% 
-      filter(Date >= input$date_choice[1], Date <= input$date_choice[2])
-  })
-  #this line is not working rn
-  filtered_data <- reactive({filtered_data[ ,which((names(filtered_data) %in% input$race_choice)==TRUE)]})
-  filtered_data <- reactive({filtered_data %>% 
-    select(-contains("Date"))
-    names <- colnames(filtered_data)
-    values <- as.numeric(head(filtered_data, 1))
-    death_hosp_proportions <- data.frame("Race" = names, "Proportion" = values)
-  })
   output$barchart <- renderPlotly({
-    my_plot <- ggplot(death_hosp_proportions) +
-      geom_col(mapping = aes(x = Race, y = Proportion, color = Race)) +
+    test_data1 <- reactive({
+      filtered_data <- new_proportions %>% 
+        filter(Date >= input$date_choice[1], Date <= input$date_choice[2])
+      filtered_data <-filtered_data %>% 
+        select(-contains("Date"))
+      names <- colnames(filtered_data)
+      values <- as.numeric(head(filtered_data, 1))
+      test_data <- data.frame("Race" = names, "Proportion" = values)
+      test_data %>% filter(Race %in% input$race_choice)
+    })
+    my_plot <- ggplot(test_data1()) +
+      geom_col(mapping = aes(x = Race, y = Proportion, fill = Race)) +
       labs(x = "Race", y = "Proportion of Deaths to Hospitalizations", title = "COVID Deaths to Hospitalizatons by Race")
     ggplotly(my_plot) 
   })
   
   #chart 3
-  
+
   output$graph <- renderPlotly({
     hosp_by_day <- covid_cases %>% 
       select("Date", starts_with("Hosp")) %>% 

@@ -26,7 +26,7 @@ race_input <- checkboxGroupInput(
   inputId = "race_choice",
   choices = races,
   label = "choose a racial group to display",
-  selected = "Asian"
+  selected = c("Asian", "AIAN")
 )
 
 #Select which date
@@ -37,8 +37,8 @@ date_input <- sliderInput(
   max = as.Date("2021-03-03","%Y-%m-%d"),
   value = c(as.Date("2020-06-29"), as.Date("2021-01-29")), 
   timeFormat="%Y-%m-%d", 
-  step = 1,
-  animate = animationOptions(interval = 1800)
+  step = 30,
+  animate = animationOptions(interval = 300, loop = TRUE)
 )
 
 # graph inputs for chart 3 ------------------------------------------------
@@ -79,23 +79,20 @@ page_two <- tabPanel(
 
 page_three <- tabPanel(
   "Chart Two", 
-  titlePanel("title of chart"),
+  titlePanel("Observing Deaths to Hospitalization Proportions Across Ethnicities"),
   br(),
-  #Put all the inputs here
   sidebarLayout(
     sidebarPanel(
       race_input,
       date_input
     ),
-    #Display the actual chart here
     mainPanel(
-      # Actual chart
       plotlyOutput(outputId = "barchart"),
     )
   ),
   br(),
   #Why included chart and what patterns shown 
-  p("some explanation")
+  p("I included this chart to view the breakdown of deaths to hospitalization proportion across different races. Some patterns that I observed was that the White and Asian proportions were always the highest out of all the other races regardless of the time frame. However, I saw that in the early 2020 year, Asians had a higher deaths to hospitalizations proportion until late 2020, where the White proportion surpassed the Asian proportion. While I was wrangling the data, I also noticed that there was a significant lack of data in the hospitalizations for all races during March and April of 2020, which could affect the contextualization of this graph.")
 )
 
 page_four <- tabPanel(
