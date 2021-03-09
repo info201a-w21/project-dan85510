@@ -69,7 +69,7 @@ new_proportions <- new_proportions  %>%
 dates <- new_proportions$Date
 min_date <- min(dates)
 max_date <- max(dates)
-races <- c("White", "LatinX", "Asian", "AIAN", "NHPI", "Multiracial", "Black", "Other")
+races <- c("White", "LatinX", "Asian", "AIAN", "NHPI", "Multiracial", "Other")
 # Server Components -------------------------------------------------------
 
 server <- function(input, output, session){
@@ -80,7 +80,7 @@ server <- function(input, output, session){
     total_cases <- case_race %>% 
       select(input$race)
     hist_cases <- ggplot(total_cases, aes_string(x=input$race)) +
-      geom_histogram(bins = 30) +
+      geom_histogram(bins = 30, fill = input$colors, color = "black") +
       labs(x = paste("Number of", input$race),
            y= "Frequency",
            title = paste("Distribution of Total", input$race, "Across the U.S."))

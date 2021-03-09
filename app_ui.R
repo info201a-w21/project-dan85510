@@ -14,9 +14,8 @@ race_option <- selectInput(
 color_options <- radioButtons(
   inputId = "colors",
   label = h3("Color options"),
-  choiceValues = c("turquoise", "tomato", "ivory", "honeydew"), 
-  choiceNames = list("Turquoise", "Tomato", "Ivory", "Honeydew"),
-  selected = 1,
+  choices = list("Turquoise" = "turquoise", "Tomato" = "tomato", 
+                 "Blue" = "blue", "Honeydew" = "honeydew")
 )
 
 # graph inputs for chart 2 ------------------------------------------------
