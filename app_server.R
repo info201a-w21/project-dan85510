@@ -147,7 +147,43 @@ server <- function(input, output, session){
       )
   chart
   })
+
+
+#takeaways
+
+  output$BAR <- renderPlotly ({
+    hosp_by_day_bar <- covid_cases %>% 
+      select("Date", starts_with("Hosp")) %>%
+      filter(Date == max(Date)) %>%
+      group_by(Date) %>%
+      summarize(White = sum(Hosp_White, na.rm = T),
+            Black = sum(Hosp_Black, na.rm = T),
+            Latinx = sum(Hosp_Latinx, na.rm = T),
+            Asian = sum(Hosp_Asian, na.rm = T),
+            AIAN = sum(Hosp_AIAN, na.rm = T),
+            NHPI = sum(Hosp_NHPI, na.rm = T),
+            Multiracial = sum(Hosp_Multiracial, na.rm = T),
+            Other = sum(Hosp_Other, na.rm = T),
+            Unknown = sum(Hosp_Unknown, na.rm = T)
+  ) %>%
+      select(-Date)
+    
+    hosp_by_day_bar <- as.data.frame(t(hosp_by_day_bar))
+  
+    hosp_by_day_bar <- setNames(cbind(rownames(hosp_by_day_bar),
+                                      hosp_by_day_bar,
+                                      row.names = NULL),
+                                c("Ethnicity", "Hospitalizations"))
+
+
+options(scipen = 100)
+
+recent_hosp_chart <- ggplot(hosp_by_day_bar) +
+  geom_col(mapping = aes(x = Ethnicity, y = Hospitalizations, color = Ethnicity)) +
+             labs(title = "Current hospitalizations by ethnicity", x = "ethnicity", y = "hospitalizations")
+
+ggplotly(recent_hosp_chart)
+
+})
+  
 }
-
-
-

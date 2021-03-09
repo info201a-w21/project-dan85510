@@ -114,8 +114,22 @@ page_four <- tabPanel(
 )
 
 page_five <- tabPanel(
-  "Summary/Takeaways" 
-)
+  "Summary/Takeaways",
+  titlePanel("Major takeaways"),
+  br(),
+  sidebarLayout(
+    sidebarPanel(
+      p("Takeaway 1")
+    ),
+  mainPanel(
+    plotlyOutput(outputId = "BAR"),
+    br(),
+    p("takeaway 2"),
+    br(),
+    p("takeaway 3")
+     )
+    )
+  )
 
 ui <- navbarPage(
   "Final Project", 
