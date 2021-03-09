@@ -5,7 +5,7 @@ library(plotly)
 library(dplyr)
 library(lubridate)
 
-covid_cases <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv")
+covid_cases <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv", na.strings=c(""," ","NA"))
 source("ChartTwo-Proportions.R")
 
 # Chart 1 Components ------------------------------------------------------
@@ -71,48 +71,41 @@ min_date <- min(dates)
 max_date <- max(dates)
 races <- c("White", "LatinX", "Asian", "AIAN", "NHPI", "Multiracial", "Other")
 # Server Components -------------------------------------------------------
-test <- case_race %>% 
-  select("Cases_White")
-
-test1 <- test$Cases_White
 
 server <- function(input, output, session){
-  output$value <- renderPrint({ input$checkGroup })
   # chart 1 info
   # Creating a histogram showing frequency of cases in all of the U.S.
   # states/territories from the dataset
-  total_cases <- reactive({case_race %>% 
-      select(input$race)
-  })
   output$histogram <- renderPlotly({
-    hist_cases <- ggplot(total_cases(), aes(x=total_cases$input$race)) +
-      geom_histogram(bins = 10) +
+    total_cases <- case_race %>% 
+      select(input$race)
+    hist_cases <- ggplot(total_cases, aes_string(x=input$race)) +
+      geom_histogram(bins = 30, fill = input$colors, color = "black") +
       labs(x = paste("Number of", input$race),
            y= "Frequency",
-           title = paste("Distribution of total", input$race, "Across the U.S."))
+           title = paste("Distribution of Total", input$race, "Across the U.S."))
     ggplotly(hist_cases)
   })
   #chart 2
-  filtered_data <- reactive({new_proportions %>% 
-      filter(Date >= input$date_choice[1], Date <= input$date_choice[2])
-  })
-  #this line is not working rn
-  filtered_data <- reactive({filtered_data[ ,which((names(filtered_data) %in% input$race_choice)==TRUE)]})
-  filtered_data <- reactive({filtered_data %>% 
-    select(-contains("Date"))
-    names <- colnames(filtered_data)
-    values <- as.numeric(head(filtered_data, 1))
-    death_hosp_proportions <- data.frame("Race" = names, "Proportion" = values)
-  })
   output$barchart <- renderPlotly({
-    my_plot <- ggplot(death_hosp_proportions) +
-      geom_col(mapping = aes(x = Race, y = Proportion, color = Race)) +
+    test_data1 <- reactive({
+      filtered_data <- new_proportions %>% 
+        filter(Date <= input$date_choice[2], Date >= input$date_choice[1])
+      filtered_data <-filtered_data %>% 
+        select(-contains("Date"))
+      names <- colnames(filtered_data)
+      values <- as.numeric(head(filtered_data, 1))
+      test_data <- data.frame("Race" = names, "Proportion" = values)
+      test_data %>% filter(Race %in% input$race_choice)
+    })
+    my_plot <- ggplot(test_data1()) +
+      geom_col(mapping = aes(x = Race, y = Proportion, fill = Race)) +
       labs(x = "Race", y = "Proportion of Deaths to Hospitalizations", title = "COVID Deaths to Hospitalizatons by Race")
     ggplotly(my_plot) 
   })
   
   #chart 3
-  
+
   output$graph <- renderPlotly({
     hosp_by_day <- covid_cases %>% 
       select("Date", starts_with("Hosp")) %>% 
