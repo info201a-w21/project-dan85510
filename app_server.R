@@ -76,9 +76,6 @@ server <- function(input, output, session){
   # chart 1 info
   # Creating a histogram showing frequency of cases in all of the U.S.
   # states/territories from the dataset
-#  total_cases <- reactive({case_race %>% 
-#       select(input$race)
-#   })
   output$histogram <- renderPlotly({
     total_cases <- case_race %>% 
       select(input$race)
