@@ -5,7 +5,7 @@ library(plotly)
 library(dplyr)
 library(lubridate)
 
-covid_cases <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv")
+covid_cases <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv", na.strings=c(""," ","NA"))
 source("ChartTwo-Proportions.R")
 
 # Chart 1 Components ------------------------------------------------------
@@ -71,25 +71,22 @@ min_date <- min(dates)
 max_date <- max(dates)
 races <- c("White", "LatinX", "Asian", "AIAN", "NHPI", "Multiracial", "Other")
 # Server Components -------------------------------------------------------
-test <- case_race %>% 
-  select("Cases_White")
-
-test1 <- test$Cases_White
 
 server <- function(input, output, session){
-  output$value <- renderPrint({ input$checkGroup })
   # chart 1 info
   # Creating a histogram showing frequency of cases in all of the U.S.
   # states/territories from the dataset
-  total_cases <- reactive({case_race %>% 
-      select(input$race)
-  })
+#  total_cases <- reactive({case_race %>% 
+#       select(input$race)
+#   })
   output$histogram <- renderPlotly({
-    hist_cases <- ggplot(total_cases(), aes(x=total_cases$input$race)) +
-      geom_histogram(bins = 10) +
+    total_cases <- case_race %>% 
+      select(input$race)
+    hist_cases <- ggplot(total_cases, aes_string(x=input$race)) +
+      geom_histogram(bins = 30) +
       labs(x = paste("Number of", input$race),
            y= "Frequency",
-           title = paste("Distribution of total", input$race, "Across the U.S."))
+           title = paste("Distribution of Total", input$race, "Across the U.S."))
     ggplotly(hist_cases)
   })
   #chart 2
