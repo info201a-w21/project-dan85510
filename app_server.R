@@ -15,7 +15,8 @@ source("ChartTwo-Proportions.R")
 case_race <- covid_cases %>% 
   filter(Date == max(Date, na.rm = T)) %>%
   select(starts_with("Cases")) %>%
-  select(-contains("Total"), -contains("Unknown"), -contains("Ethnicity"))
+  select(-contains("Total"), -contains("Unknown"), -contains("Ethnicity")) %>% 
+  mutate(Cases_Black = as.numeric(Cases_Black))
 
 
 # Chart 2 Components ------------------------------------------------------
