@@ -69,7 +69,7 @@ new_proportions <- new_proportions  %>%
 dates <- new_proportions$Date
 min_date <- min(dates)
 max_date <- max(dates)
-races <- c("White", "LatinX", "Asian", "AIAN", "NHPI", "Multiracial", "Other")
+races <- c("White", "LatinX", "Asian", "AIAN", "NHPI", "Multiracial", "Black", "Other")
 # Server Components -------------------------------------------------------
 test <- case_race %>% 
   select("Cases_White")
