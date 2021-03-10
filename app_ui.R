@@ -87,7 +87,7 @@ page_two <- tabPanel(
 )
 
 page_three <- tabPanel(
-  "Chart Two", 
+  "Deaths to Hospitalizations Ratio", 
   titlePanel("Observing Deaths to Hospitalization Proportions Across Ethnicities"),
   br(),
   sidebarLayout(
@@ -105,7 +105,7 @@ page_three <- tabPanel(
 )
 
 page_four <- tabPanel(
-  "Chart 3",
+  "COVID Hospitalizations over Time",
   titlePanel("Examining COVID Hospitalizations by Race over Time"),
   br(),
   sidebarLayout(

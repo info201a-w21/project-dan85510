@@ -3,10 +3,8 @@ library(tidyverse)
 library(ggplot2)
 library(plotly)
 library(dplyr)
-library(lubridate)
 
 covid_cases <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vS8SzaERcKJOD_EzrtCDK1dX1zkoMochlA9iHoHg_RSw3V8bkpfk1mpw4pfL5RdtSOyx_oScsUtyXyk/pub?gid=43720681&single=true&output=csv", na.strings=c(""," ","NA"))
-source("ChartTwo-Proportions.R")
 
 # Chart 1 Components ------------------------------------------------------
 
