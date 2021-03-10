@@ -125,14 +125,32 @@ page_five <- tabPanel(
   br(),
   sidebarLayout(
     sidebarPanel(
-      p("Takeaway 1")
+      p("Through our data collecting and analysis, we were able to identify key aspects of the data we investigated and researched.
+      Overall, the largest percentage of individuals hospitalized from the coronavirus to date was the white population; 
+      as of March 3, 2017, White Americans were responsible for almost half of all 
+      the total US hospitalizations (around 46.57%, 288,383 individuals) while the other minority groups accounted for 
+      the remaining 53.43% of COVID-19 hospitalizations in the United States. This result shows that White Americans had
+      greater accessibility to COVID-19 support that came in the form of hospital/medical attention than other ethnicities due to possible
+      factors such as financial status, skeptism/trust towards public medical care, or ethical values." )
     ),
   mainPanel(
     plotlyOutput(outputId = "BAR"),
     br(),
-    p("takeaway 2"),
     br(),
-    p("takeaway 3")
+    p("Another takeaway we found was the changes in the deaths to hospitalizations proportion for Asian and White ethnicities. 
+      From chart 2, we initially found a greater proportion of deaths to hospitalizations for Asians; Understanding 
+      that the source of COVID-19 was located in Asia, travelers from countries that endured the first wave of the coronavirus 
+      the hardest from Asia could have more easily spread the virus to individuals whom they closely socialized with (family, friends) in the US. However, 
+      we found that in the later half of 2020, we saw a drastic increase in the deaths to hospitalizations proportion for white Americans, showing the results 
+      of primarily young Americans' neglecting health and safety protocols and the absence of strict coronavirus restrictions until after 
+      large surges in COVID-19 cases."),
+    br(),
+    p("Finally, we saw various US states/territories that had drastically large numbers of COVID-19 cases compared to the majority of states/territories that 
+      accounted for less than 50,000 COVID-19 positive tests each. Specifically, groups identifying as White or Black saw various areas across the country where 
+      cases were well above 100,000. From our data, we found that 32 states/territories had on average more than 100,000 coronavirus cases for the white population, while the Black population's
+      positive tests surpassed the same mark in 8 states/territories. The data collected suggests that the higher average COVID-19 cases for White and Black ethnic groups 
+      in many states/territories compared to other minority populations could show why White individuals had a drastically large amount of people hospitalized while Black individuals had the 3rd highest at 110,220 hospitalizations. 
+      ")
      )
     )
   )
