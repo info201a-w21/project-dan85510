@@ -60,7 +60,7 @@ page_one <- tabPanel(
 )
 
 page_two <- tabPanel(
-  "Chart 1",
+  "Histogram of Cases by Ethnicity",
   titlePanel("Title"),
   br(),
   sidebarLayout(
@@ -74,7 +74,16 @@ page_two <- tabPanel(
     )
   ),
   br(),
-  p("I chose to include this because ... ")
+  p("I chose to include this because to even start looking at our questions we 
+    wanted to look at and see how the cases for each ethnicity differed. In 
+    looking at this we decided to do a histogram of the U.S. states and 
+    territories that were mentioned in the dataset. Looking at the distribution
+    across different ethnicities and how it differed for each one helped
+    us to then see how that may have affected other variables we looked at. One
+    important notice is that for many of the of the histograms there was 
+    some outliers that had a lot more cases than the majority where we
+    can assume that it was the states that had more cases overall in which
+    these different ethnic groups also had more cases and acted as outliers.")
 )
 
 page_three <- tabPanel(
