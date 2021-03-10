@@ -173,7 +173,7 @@ options(scipen = 100)
 
 recent_hosp_chart <- ggplot(hosp_by_day_bar) +
   geom_col(mapping = aes(x = Ethnicity, y = Hospitalizations, color = Ethnicity)) +
-             labs(title = "Current hospitalizations by ethnicity", x = "ethnicity", y = "hospitalizations")
+  labs(title = "Current hospitalizations by ethnicity", x = "ethnicity", y = "hospitalizations")
 
 ggplotly(recent_hosp_chart)
 
