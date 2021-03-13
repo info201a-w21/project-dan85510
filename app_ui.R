@@ -56,6 +56,8 @@ dates_input <- sliderInput (
 
 page_one <- tabPanel(
   "Introduction", 
+  tags$img(alt="Covid-19", src="COVID-19.png"),
+  tags$h1("Project Overview"),
   p("The main topic of our project is looking at accessibility to COVID hospitalization 
     in the US among different demographics. We wanted to analyze if demographics affect 
     the ability to get COVID-related support in hospitals. The data we are looking at was 
@@ -66,7 +68,29 @@ page_one <- tabPanel(
     rates of COVID cases differ based on different ethnicity groups and how hospitalization rates differ 
     based on different ethnicity groups? In looking at these variables 
     and doing analysis over them some important findings can be made about the ways in which 
-    different ethnicities in the U.S. dealt with COVID-19. ")
+    different ethnicities in the U.S. dealt with COVID-19. "),
+  br(),
+  tags$h2("Please Read Carefully"),
+  tags$h3("Check if you are experiencing any of the following symptoms, if so consult a doctor or dial 911."),
+  tags$ul(
+    tags$li("Fever or chills"),
+    tags$li("Cough"),
+    tags$li("Shortness of breath or difficulty breathing"),
+    tags$li("Muscle or body aches"),
+    tags$li("Headache"),
+    tags$li("New loss of taste or smell"),
+    tags$li("Sore throat"),
+    tags$li("Congestion or runny nose"),
+    tags$li("Nausea or vomiting"),
+    tags$li("Diarrhea")
+  ),
+  br(),
+  tags$h3("Fun Facts About Covid-19"),
+  tags$ul(
+    tags$li("The first covid case in the U.S. was in Kirkland, Washington"),
+    tags$li("People of blood type A are more likely to get COVID-19"),
+    tags$li("The coronavirus is named SARS-CoV-2 while the disease is called COVID-19.")
+  )
 )
 
 page_two <- tabPanel(
