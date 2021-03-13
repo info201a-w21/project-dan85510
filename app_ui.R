@@ -56,7 +56,17 @@ dates_input <- sliderInput (
 
 page_one <- tabPanel(
   "Introduction", 
-  p("The main topic of our project is looking at accessibility to COVID hospitalization in the US among different demographics. We wanted to analyze if demographics affect the ability to get COVID-related support in hospitals. The data we are looking at was gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. They obtained the data from the states' reports of them. This dataset helps to answer our research question by looking at a lot of different variables regarding how COVID-19 has affected different ethnicities across the U.S. The two main points of focus are looking at how treatment rates of COVID cases differ based on different ethnicity groups and how hospitalization rates differ according to different parts (cities, states, etc.) of the country? In looking at these variables and doing analysis over them some important findings can be made about the ways in which different ethnicities in the U.S. dealt with COVID-19. ")
+  p("The main topic of our project is looking at accessibility to COVID hospitalization 
+    in the US among different demographics. We wanted to analyze if demographics affect 
+    the ability to get COVID-related support in hospitals. The data we are looking at was 
+    gathered from the COVID Tracking Project and Boston University Center for Antiracist Research. 
+    They obtained the data from the states' reports of them. This dataset helps to answer our 
+    research question by looking at a lot of different variables regarding how COVID-19 has affected 
+    different ethnicities across the U.S. The two main points of focus are looking at how treatment 
+    rates of COVID cases differ based on different ethnicity groups and how hospitalization rates differ 
+    based on different ethnicity groups? In looking at these variables 
+    and doing analysis over them some important findings can be made about the ways in which 
+    different ethnicities in the U.S. dealt with COVID-19. ")
 )
 
 page_two <- tabPanel(
@@ -115,8 +125,13 @@ page_four <- tabPanel(
     mainPanel(
       plotlyOutput(outputId = "graph")
     )
-  )
-  
+  ),
+  br(),
+  p("This chart shows that over time, White and Latinx individuals consistently have the highest hospitalization
+     rates due to COVID-19. However, especially in later months, starting in 2021, White hospitalizations have increased
+    dramatically relative to other ethnicities, which have largely remained constant starting in 2021. Therefore, this 
+    indicates that either White individuals have more access to hospitals relative to other ethnicities, or they are
+    getting COVID at higher rates compared to other ethnicities.")
 )
 
 page_five <- tabPanel(
