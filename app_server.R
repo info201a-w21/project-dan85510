@@ -99,7 +99,7 @@ server <- function(input, output, session){
     })
     my_plot <- ggplot(test_data1()) +
       geom_col(mapping = aes(x = Race, y = Proportion, fill = Race)) +
-      labs(x = "Race", y = "Proportion of Deaths to Hospitalizations", title = "COVID Deaths to Hospitalizatons by Race")
+      labs(x = "Race", y = "Proportion of Deaths to Hospitalizations", title = paste(toString(input$race_choice), "\nCOVID Deaths to Hospitalizatons by Race"))
     ggplotly(my_plot) 
   })
   
